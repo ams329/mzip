@@ -1,0 +1,27 @@
+Package: mzip
+Title: Marginalized Zero-Inflated Poisson Regression Model Package
+Version: 0.0.0.9000
+Authors@R: c(
+    person(given = "Andrew",
+           family = "Sims",
+           role = c("aut", "cre"),
+           email = "ams329@uab.edu",
+           comment = c(ORCID = "YOUR-ORCID-ID")),
+	person(given="Dustin",family="Long", role="aut"),
+	person(given="Leann",family="Long",role="ctb"))
+Description: Lambert et. al (1992) found that Poisson and Negative Binomial models failed to accurately estimate
+	results when count outcomes had excess zeroes. Lambert then developed the Zero-Inflated Poisson Model (ZIP). ZIP
+	is a mixture distribution of a Bernoulli distribution of the probability of an excess zero and a Poisson model of the
+	mean of the suscpetible population. Preisser et. al (2012) found that often times these coefficients of the ZIP model
+	were not interpreted correctly as many researchers are not interested in the "mean of the susceptible population", but 
+	rather the mean of the whole population. Long et. al (2014) in response to this developed the Marginalized
+	Zero-Inflated Poisson Model (MZIP) that accounts for excess zeros and has more easily interpretable results. The MZIP
+	model is essentially the same model as the ZIP model, but directly models the overall mean in the Poisson part. This
+	allows for alpha coefficients to be interpreted as risk ratios of the population average effect.
+License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
+    license
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.2
+Imports: MASS, robust, boot, stats
