@@ -83,23 +83,23 @@ mzip = function(y,pred,print=F){
   nu_hat = exp(x_alpha_hat) #n x 1 vector
   psi_hat2 = 1/(1-psi_hat)
   
-  diag_gg	= (psi_hat^2*(1-psi_hat)*(psi_hat*psi_hat2*nu_hat+1)*(exp(nu_hat*psi_hat2)-nu_hat*(psi_hat2)-1))/(psi_hat*exp(nu_hat*psi_hat2)+(1-psi_hat))
-  
-  diag_aa = (nu_hat*(psi_hat*(exp(nu_hat*psi_hat2)-nu_hat*psi_hat2-1)+1))/(psi_hat*exp(nu_hat*psi_hat2)+(1-psi_hat))
-  
-  diag_ga = nu_hat*psi_hat*(1-exp(-nu_hat*psi_hat2)+(-(1+nu_hat*psi_hat*psi_hat2+nu_hat*(psi_hat*psi_hat2)^2+exp(-nu_hat*psi_hat2))/((psi_hat*psi_hat2)*exp(nu_hat*psi_hat2)+1)))
-  
-  #test for error
-  dd_gg=diag(as.vector(diag_gg))
-  dd_aa=diag(as.vector(diag_aa))
-  
-  tx_dd_gg=t(Z)%*%diag(as.vector(diag_gg))
-  dd_gg_x=diag(as.vector(diag_gg))%*%(Z)
-  
-  I_gg			= t(Z)%*%diag(as.vector(diag_gg))%*%(Z)
-  I_aa			= t(X)%*%diag(as.vector(diag_aa))%*%(X)
-  I_ga			= t(X)%*%diag(as.vector(diag_ga))%*%(Z)
-  I_ag			= t(I_ga)
+  # diag_gg	= (psi_hat^2*(1-psi_hat)*(psi_hat*psi_hat2*nu_hat+1)*(exp(nu_hat*psi_hat2)-nu_hat*(psi_hat2)-1))/(psi_hat*exp(nu_hat*psi_hat2)+(1-psi_hat))
+  # 
+  # diag_aa = (nu_hat*(psi_hat*(exp(nu_hat*psi_hat2)-nu_hat*psi_hat2-1)+1))/(psi_hat*exp(nu_hat*psi_hat2)+(1-psi_hat))
+  # 
+  # diag_ga = nu_hat*psi_hat*(1-exp(-nu_hat*psi_hat2)+(-(1+nu_hat*psi_hat*psi_hat2+nu_hat*(psi_hat*psi_hat2)^2+exp(-nu_hat*psi_hat2))/((psi_hat*psi_hat2)*exp(nu_hat*psi_hat2)+1)))
+  # 
+  # #test for error
+  # dd_gg=diag(as.vector(diag_gg))
+  # dd_aa=diag(as.vector(diag_aa))
+  # 
+  # tx_dd_gg=t(Z)%*%diag(as.vector(diag_gg))
+  # dd_gg_x=diag(as.vector(diag_gg))%*%(Z)
+  # 
+  # I_gg			= t(Z)%*%diag(as.vector(diag_gg))%*%(Z)
+  # I_aa			= t(X)%*%diag(as.vector(diag_aa))%*%(X)
+  # I_ga			= t(X)%*%diag(as.vector(diag_ga))%*%(Z)
+  # I_ag			= t(I_ga)
   
   Inform=estimates$hessian
   Inv_inform		= MASS::ginv(Inform)
